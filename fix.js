@@ -45,25 +45,25 @@ let fatalErrors = results => results.filter(
   ).length)
 )
 
-let fix = (verbose, project) => path => {
+let fix = options => path => {
   if (writingTo[path] === undefined) {
-    if (verbose) {
+    if (options.verbose) {
       console.error(`${path} changed`)
     }
 
     writingTo[path] = true
     runner.run({
       config: undefined,
-      exclude: ['node_modules'],
+      exclude: ['node_modules', 'bower_components'],
       files: [path],
       fix: true,
       force: undefined,
-      format: 'prose',
+      format: options.format || 'prose',
       formattersDirectory: undefined,
       init: undefined,
       out: undefined,
       outputAbsolutePaths: undefined,
-      project: project || 'tsconfig.json',
+      project: options.project || 'tsconfig.json',
       rulesDirectory: undefined,
       test: undefined,
       typeCheck: undefined,

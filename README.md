@@ -30,9 +30,13 @@ Or add it to your package.json
 
 ## Command Line Options
 
+`--help` to show the help message
+
 `--project` to specify your Typescript configuration. Defaults to `tsconfig.json`.
 
 `--verbose` to report whenever a file is changed.
+
+`--format` to specify which TSLint format to use. Defaults to `prose`, which is probably what you want.
 
 `[globs-to-watch]` are all the file globs you want tslint-auto-fix to watch. You can pass multiple globs.
 
